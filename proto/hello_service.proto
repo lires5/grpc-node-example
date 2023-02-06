@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "language.proto";
+
+service HelloService {
+  rpc greet(GreetRequest) returns (GreetResponse) {}
+  rpc streamGreet(GreetRequest) returns (stream GreetResponse) {}
+}
+
+message GreetRequest {
+  string name = 1;
+  language.Language.Code language_code = 2;
+}
+
+message GreetResponse {
+  string greeting = 1;
+  reserved "language_code";
+  reserved 2;
+}
+
+
