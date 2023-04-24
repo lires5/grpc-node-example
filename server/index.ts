@@ -1,4 +1,4 @@
-import { makeGreet } from './server/services/greet.service';
+import { makeGreet } from './services/greet.service';
 
 (async function() {
     for (let i = 0; i < 5; i++) {
