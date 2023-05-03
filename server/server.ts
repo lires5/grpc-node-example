@@ -32,9 +32,9 @@ const server = new grpc.Server();
 
 // Post Services
 server.addService(proto.HelloService.service, <UntypedServiceImplementation>{
-    GreetHandler: (req: grpc.ServerUnaryCall<GreetRequest__Output, GreetResponse>,
+    greet: (req: grpc.ServerUnaryCall<GreetRequest__Output, GreetResponse>,
                    res: grpc.sendUnaryData<GreetResponse>) => greetHandler(req, res),
-    GreetStreamHandler: (call: grpc.ServerWritableStream<GreetRequest__Output, GreetResponse>) =>
+    streamGreet: (call: grpc.ServerWritableStream<GreetRequest__Output, GreetResponse>) =>
         greetStreamHandler(call)
 } as HelloServiceHandlers)
 server.bindAsync(
